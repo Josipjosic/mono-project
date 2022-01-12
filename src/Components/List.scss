@@ -1,0 +1,43 @@
+.ListUi {
+  width: auto;
+  height: auto;
+  background-color: rgba(172, 172, 172, 0.199);
+  color: white;
+
+  .ListControl {
+    width: 50%;
+    height: auto;
+    display: inline-block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.158);
+   
+  }
+  .ListFilters {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    :hover {
+        cursor: pointer;
+        background-color: rgba(15, 15, 15, 0.212);
+        
+    }
+    h4 {
+        border: 1px solid rgb(221, 221, 221);
+        padding: 20px;
+        font-size: 16px;
+        text-align: center;
+    }
+  }
+  .ListData {
+    width: 50%;
+    height: auto;
+    background-color: rgba(172, 172, 172, 0.199);
+    display: inline-flex;
+    h5 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      columns: 3;
+      width: 150px;
+      font-size: 20px;
+    }
+  }
+}
