@@ -11,9 +11,10 @@
     margin-left: 25%;
     width: 50%;
 
-    h3 {
+    label {
       font-size: 15px;
       margin-right: -50px;
+      margin-top: 18px;
     }
     input {
       width: 200px;
@@ -25,24 +26,11 @@
       border-radius: 5px;
       outline: none;
     }
-  }
-  .EditorCom {
-    margin-left: -50px;
-    button {
-      margin: 30px 0 30px 30px;
-      padding: 10px;
-      font-size: 16px;
-      background-color: rgba(255, 255, 255, 0.205);
-      color: rgb(0, 0, 0);
-      border: 1px solid rgba(255, 255, 255, 0);
-      border-radius: 5px;
-    }
-    :hover {
-      cursor: pointer;
-      color: rgb(255, 255, 255);
-      background-color: #fcfcfc2a;
-      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
-      transform: translateY(-2px);
+    p {
+      display: grid;
+      gap: 1rem;
+      grid-column-start: none;
+
     }
   }
 }

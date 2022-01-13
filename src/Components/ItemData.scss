@@ -3,9 +3,14 @@
   grid-template-columns: auto auto auto;
   margin-left: 25%;
   width: 50%;
+  :hover {
+    cursor: pointer;
+    background-color: rgba(15, 15, 15, 0.705);
+}
   .grid-item {
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid rgb(70, 69, 69);
+    width: 275px;
     padding: 20px;
     font-size: 16px;
     text-align: center;
