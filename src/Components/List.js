@@ -15,34 +15,34 @@ function List() {
           return response.json();
         })
         .then((data) => {
-          setCar(data);
-          console.log(data)
+          const loadedCars = [];
+          for (const key in data) {
+            loadedCars.push({
+              id: key,
+              name: data[key].name,
+              type: data[key].type,
+              IdNum: data[key].id,
+              key: data[key].id,
+            });
+          }
+          setCar(loadedCars);
         });
     }
     fetchCars();
   }, []);
 
-  let carsToRender;
-  if (cars) {
-      carsToRender = cars.map(car => {
-          return <ItemData key={car.vehicleMake.id} id={car.vehicleMake.id} name={car.vehicleMake.name} model={car.vehicleModel.name}></ItemData>
-      });
-  }
-
-
+   const sortItems = () => {cars.sort((a, b) => (a.name > b.name) ? 1 : -1)}
 
   return (
     <div className="ListUi">
       <div className="ListControl">
         <div className="ListFilters">
-          <h4>ID</h4>
+          <h4 onClick={sortItems}>ID</h4>
           <h4>Name</h4>
           <h4>Type</h4>
         </div>
       </div>
-      <section>
-          {carsToRender}
-      </section>
+      <section>{cars && <ItemData carDetail={cars} />}</section>
     </div>
   );
 }

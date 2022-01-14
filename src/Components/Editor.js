@@ -1,59 +1,37 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import "./Editor.scss";
-import EditorCom from './EditorCom'
 
-const isEmpty = (value) => value.trim() === "";
-
-const Editor = (props) => {
-  const [formInputsValidity, setFormInputValidity] = useState({
-    id: true,
-    name: true,
-    type: true,
-  });
-
-  const idInputRef = useRef();
-  const nameInputRef = useRef();
-  const typeInputRef = useRef();
+const Editor = () => {
+  const [id, setId] = useState("");
+  const [name, setName] = useState("");
+  const [type, setType] = useState("");
 
   const confirmHandler = (event) => {
     event.preventDefault();
+    const data = {id, name, type};
 
-    const enteredId = idInputRef.current.value;
-    const enteredName = nameInputRef.current.value;
-    const enteredType = typeInputRef.current.value;
+    fetch("https://mono-6be92-default-rtdb.europe-west1.firebasedatabase.app/.json", {
+      method: 'POST',
+      headers: {"Content-Type" : "application/json"},
+      body: JSON.stringify(data)
+    }).then(() => {
+    })
+  }
+  
 
-    const enteredIdisValid = !isEmpty(enteredId);
-    const enteredNameisValid = !isEmpty(enteredName);
-    const enteredTypeisValid = !isEmpty(enteredType);
-
-    setFormInputValidity({
-      id: enteredIdisValid,
-      name: enteredNameisValid,
-      type: enteredTypeisValid,
-    });
-
-    const formIsValid =
-      enteredIdisValid && enteredNameisValid && enteredTypeisValid;
-
-    if (!formIsValid) {
-      return;
-    }
-
-  };
   return (
     <div className="EditorUi">
       <h2>Enter Info</h2>
       <form className="EditorContent" onSubmit={confirmHandler}>
-        <label htmlFor="id">ID</label>
-        <input type="text" id="id" ref={idInputRef}></input>
-        {!formInputsValidity.id && <p>please enter a ID</p>}
+        <label htmlFor="id" >ID</label>
+        <input type="text" value={id} onChange={(event) => setId(event.target.value)}></input>
         <label htmlFor="name">Name</label>
-        <input type="text" id="name" ref={nameInputRef}></input>
-        {!formInputsValidity.name && <p>please enter a name</p>}
+        <input type="text" id="name" value={name} onChange={(event) => setName(event.target.value)}></input>
         <label htmlFor="type">Type</label>
-        <input type="text" id="type" ref={typeInputRef}></input>
-        {!formInputsValidity.type && <p>please enter a type</p>}
-        <EditorCom onSubmitHandler={EditorCom}></EditorCom>
+        <input type="text" id="type" value={type} onChange={(event) => setType(event.target.value)}></input>
+        <div className="EditorCom">
+          <button>Confirm</button>
+        </div>
       </form>
     </div>
   );
