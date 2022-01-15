@@ -6,6 +6,7 @@ const Editor = () => {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
 
+
   const confirmHandler = (event) => {
     event.preventDefault();
     const data = {id, name, type};
@@ -17,7 +18,7 @@ const Editor = () => {
     }).then(() => {
     })
   }
-  
+
 
   return (
     <div className="EditorUi">

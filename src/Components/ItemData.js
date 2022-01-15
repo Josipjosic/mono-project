@@ -20,7 +20,7 @@ const ItemData = (props) => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstPost = indexOfLastItem - itemsPerPage;
-  const currentPost = props.carDetail.slice(indexOfFirstPost, indexOfLastItem);
+  const currentPost =  props.carDetail.slice(indexOfFirstPost, indexOfLastItem);
 
   //change page
 
