@@ -2,9 +2,11 @@ import React from "react";
 import ItemData from "./ItemData";
 import { useEffect, useState } from "react";
 import "./List.scss";
+import {store, useStore} from "../Stores/store"
+import { observer } from "mobx-react-lite";
 
-function List() {
-  const [cars, setCar] = useState();
+const List = () => {
+  const [cars, setCars] = useState();
   const [searchCar, setSearchCar] = useState([]);
 
   useEffect(() => {
@@ -26,30 +28,33 @@ function List() {
               key: data[key].id,
             });
           }
-          setCar(loadedCars);
+          setCars(loadedCars);
         });
     }
     fetchCars();
   }, []);
+
+  const rootStore = useStore();
+
 
   const handleInput = (event) => {
     setSearchCar(event.target.value);
   };
 
   const filteredCars =
-    cars &&
-    cars.filter((car) => {
+    store.list &&
+    store.list.filter((car) => {
       return car.name
         .toLowerCase()
         .includes(searchCar.toString().toLowerCase());
     });
 
-    //sorting the list
-    const sortByName = cars && cars.sort((a, b) => {
-      if(b.name > a.name) return -1;
-      return 1;
-    })
+  const handleChange = () => {
+    store.setList(cars);
+  };
 
+  console.log(rootStore);
+  const observerList = observer(store.list)
 
   return (
     <div className="ListUi">
@@ -59,6 +64,14 @@ function List() {
         onChange={handleInput}
         placeholder="Search by name"
       ></input>
+      <div className="SortingControl">
+        <button onClick={handleChange} style={{ color: "red" }}>
+          Fetch List
+        </button>
+        <button>Sort by ID</button>
+        <button>Sort by Name</button>
+        <button>Sort by Type</button>
+      </div>
       <div className="ListControl">
         <div className="ListFilters">
           <h4>ID</h4>
@@ -66,9 +79,10 @@ function List() {
           <h4>Type</h4>
         </div>
       </div>
-      <section>{cars && <ItemData carDetail={filteredCars} />}</section>
+      <section className="SectionList">
+        {observerList && <ItemData carDetail={filteredCars} />}
+      </section>
     </div>
   );
-}
-
-export default List;
+};
+export default observer(List);

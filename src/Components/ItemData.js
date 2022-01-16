@@ -5,7 +5,7 @@ import Pagination from "../Pages/Pagination";
 const ItemData = (props) => {
   const [selectedId, setSelectedId] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage ] = useState(4);
+  const [itemsPerPage] = useState(4);
 
   const deleteHandler = () => {
     fetch(
@@ -20,14 +20,13 @@ const ItemData = (props) => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstPost = indexOfLastItem - itemsPerPage;
-  const currentPost =  props.carDetail.slice(indexOfFirstPost, indexOfLastItem);
+  const currentPost = props.carDetail.slice(indexOfFirstPost, indexOfLastItem);
 
   //change page
 
   const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber)
-  }
-
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className="EditorCom">
@@ -63,7 +62,11 @@ const ItemData = (props) => {
         </div>
       ))}
       <div>
-        <Pagination itemsPerPage={itemsPerPage} totalItems={props.carDetail.length} paginate={paginate}/>
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          totalItems={props.carDetail.length}
+          paginate={paginate}
+        />
       </div>
       <button onClick={deleteHandler}>Delete</button>
     </div>
