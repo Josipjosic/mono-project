@@ -2,8 +2,8 @@ import { action, makeAutoObservable, observable } from "mobx";
 
 class Store {
   list = [];
-  data;
-  selectedId;
+  data
+  selectedId
 
   constructor() {
     makeAutoObservable(this, {
@@ -36,7 +36,6 @@ class Store {
       }
     ).then(() => {});
     this.list.push(this.data);
-    console.log(this.data);
   };
   //fetch DELETE method function
   deleteHandler = () => {

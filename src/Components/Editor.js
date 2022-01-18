@@ -19,11 +19,11 @@ const Editor = () => {
       <h2>Enter Info</h2>
       <form className="EditorContent" onSubmit={store.confirmHandler}>
         <label htmlFor="id" >ID</label>
-        <input type="text"  onChange={(event) => setId(event.target.value)}></input>
+        <input type="text" placeholder="Enter ID"  onChange={(event) => setId(event.target.value)}></input>
         <label htmlFor="name">Name</label>
-        <input type="text" id="name"  onChange={(event) => setName(event.target.value)}></input>
+        <input type="text" id="name" placeholder="Enter Name"  onChange={(event) => setName(event.target.value)}></input>
         <label htmlFor="type">Type</label>
-        <input type="text" id="type" onChange={(event) => setType(event.target.value)}></input>
+        <input type="text" id="type" placeholder="Enter Type" onChange={(event) => setType(event.target.value)}></input>
         <div className="EditorCom">
           <button>Confirm</button>
         </div>
