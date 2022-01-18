@@ -4,32 +4,9 @@
   background-color: rgba(172, 172, 172, 0.199);
   color: white;
 
-  .SortingControl {
-    margin-top: 5%;
-    display: block;
-    float: left;
-    width: 75px;
-    margin-left: 15%;
-    button {
-    margin: 0 0 30px 0px;
-    padding: 10px;
-    font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.205);
-    color: rgb(0, 0, 0);
-    border: 1px solid rgba(255, 255, 255, 0);
-    border-radius: 5px;
-    }
-    button:hover {
-      cursor: pointer;
-      color: rgb(255, 255, 255);
-      background-color: #fcfcfc2a;
-      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
-      transform: translateY(-2px);
-  }
-}
 
   .ListSearchInput {
-    margin-left: -32%;
+    margin-left: -13%;
     margin-right: 2%;
     width: 200px;
     height: 30px;

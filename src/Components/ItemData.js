@@ -1,20 +1,16 @@
 import { useState } from "react";
-import "./ItemData.scss";
+import "../Layouts/ItemData.scss";
 import Pagination from "../Pages/Pagination";
+import {store} from "../Stores/store"
 
 const ItemData = (props) => {
   const [selectedId, setSelectedId] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(4);
 
-  const deleteHandler = () => {
-    fetch(
-      `https://mono-6be92-default-rtdb.europe-west1.firebasedatabase.app/${selectedId}.json`,
-      {
-        method: "DELETE",
-      }
-    );
-  };
+  store.selectedId = selectedId
+
+ 
 
   //setting number of items per list
 
@@ -68,7 +64,7 @@ const ItemData = (props) => {
           paginate={paginate}
         />
       </div>
-      <button onClick={deleteHandler}>Delete</button>
+      <button onClick={store.deleteHandler}>Delete</button>
     </div>
   );
 };

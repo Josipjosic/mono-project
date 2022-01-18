@@ -1,9 +1,10 @@
 import React from "react";
-import './Pagination.scss'
+import "../Layouts/Pagination.scss";
 
 const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
   const pageNumbers = [];
-
+  
+  //pagnation logic for list 
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
@@ -12,7 +13,7 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
       <ul className="Pagination">
         {pageNumbers.map((number) => (
           <li key={number} className="PageItem">
-            <a onClick={() => paginate(number)} href="!#" className="PageLink">
+            <a onClick={() => paginate(number)}  href="#!" className="PageLink">
               {number}
             </a>
           </li>

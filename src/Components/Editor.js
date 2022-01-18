@@ -1,35 +1,29 @@
 import { useState } from "react";
-import "./Editor.scss";
+import "../Layouts/Editor.scss";
+import { store } from "../Stores/store";
+import {observer} from "mobx-react"
 
 const Editor = () => {
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [type, setType] = useState("");
 
+  const data = {id, name, type};
 
-  const confirmHandler = (event) => {
-    event.preventDefault();
-    const data = {id, name, type};
+  //sending data to store data value
+  store.data = data
 
-    fetch("https://mono-6be92-default-rtdb.europe-west1.firebasedatabase.app/.json", {
-      method: 'POST',
-      headers: {"Content-Type" : "application/json"},
-      body: JSON.stringify(data)
-    }).then(() => {
-    })
-  }
-
-
+  
   return (
     <div className="EditorUi">
       <h2>Enter Info</h2>
-      <form className="EditorContent" onSubmit={confirmHandler}>
+      <form className="EditorContent" onSubmit={store.confirmHandler}>
         <label htmlFor="id" >ID</label>
-        <input type="text" value={id} onChange={(event) => setId(event.target.value)}></input>
+        <input type="text"  onChange={(event) => setId(event.target.value)}></input>
         <label htmlFor="name">Name</label>
-        <input type="text" id="name" value={name} onChange={(event) => setName(event.target.value)}></input>
+        <input type="text" id="name"  onChange={(event) => setName(event.target.value)}></input>
         <label htmlFor="type">Type</label>
-        <input type="text" id="type" value={type} onChange={(event) => setType(event.target.value)}></input>
+        <input type="text" id="type" onChange={(event) => setType(event.target.value)}></input>
         <div className="EditorCom">
           <button>Confirm</button>
         </div>
@@ -37,4 +31,4 @@ const Editor = () => {
     </div>
   );
 };
-export default Editor;
+export default observer(Editor);
