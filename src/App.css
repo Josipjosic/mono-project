@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
   color: white;
   font-family: 'Times New Roman', Times, serif;
+
+}
+.AppTitle {
+  margin-left: 44%;
 }

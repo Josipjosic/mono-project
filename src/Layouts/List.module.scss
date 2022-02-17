@@ -6,7 +6,7 @@
 
 
   .ListSearchInput {
-    margin-left: -13%;
+    margin-left: 16%;
     margin-right: 2%;
     width: 200px;
     height: 30px;
@@ -19,14 +19,14 @@
   }
 
   .ListControl {
-    width: 50%;
+    width: 44.3%;
     height: auto;
     display: inline-block;
     border-bottom: 1px solid rgba(255, 255, 255, 0.158);
   }
   .ListFilters {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto ;
     :hover {
       cursor: pointer;
       background-color: rgba(15, 15, 15, 0.212);
@@ -36,7 +36,7 @@
       padding: 20px;
       font-size: 16px;
       text-align: center;
-      width: 275px;
+      width: 320px;
     }
   }
   .ListData {

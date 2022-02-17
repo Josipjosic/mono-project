@@ -1,0 +1,53 @@
+.detailsGrid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  button {
+    width: 100px;
+    position: absolute;
+    margin-left: 41%;
+    margin-top: 2%;
+  }
+  :hover {
+    cursor: pointer;
+  }
+  .detailsGridItems{
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-left: 50.5%;
+    width: 72%;
+    ul {
+      margin-left: 30px;
+    }
+    li {
+      list-style-type: none;
+    }
+  }
+
+}
+.gridItem {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgb(70, 69, 69);
+  width: 275px;
+  padding: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.EditorCom {
+  button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.205);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    margin-top: 11px;
+  }
+  button:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: #fcfcfc2a;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+}

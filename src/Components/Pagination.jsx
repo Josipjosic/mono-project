@@ -1,5 +1,5 @@
 import React from "react";
-import "../Layouts/Pagination.scss";
+import stylePag from "../Layouts/Pagination.module.scss";
 
 const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
   const pageNumbers = [];
@@ -10,10 +10,10 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
   }
   return (
     <div>
-      <ul className="Pagination">
+      <ul className={stylePag.Pagination}>
         {pageNumbers.map((number) => (
-          <li key={number} className="PageItem">
-            <a onClick={() => paginate(number)}  href="#!" className="PageLink">
+          <li key={number} className={stylePag.PageItem}>
+            <a onClick={() => paginate(number)}  href="#!" className={stylePag.PageLink}>
               {number}
             </a>
           </li>
