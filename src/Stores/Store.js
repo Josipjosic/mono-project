@@ -14,6 +14,8 @@ class Store {
   constructor() {
     makeAutoObservable(this, {
       data: observable,
+      searchCar: observable,
+      currentPage: observable,
       modal: observable,
       toggleModal: action,
     });

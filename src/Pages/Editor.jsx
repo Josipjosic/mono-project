@@ -1,7 +1,7 @@
-import { store } from "../Common/Store";
-import styleEditor from "../Layouts/Editor.module.scss";
+import { store } from "../Stores/Store";
+import styleEditor from "./Editor.module.scss";
 import { observer } from "mobx-react";
-import { listStore } from "../Common/ListStore";
+import { listStore } from "../Stores/ListStore";
 
 const Editor = () => {
   const name = store.setName;

@@ -1,20 +1,14 @@
 import React from "react";
-import Editor from "../Components/Editor";
-import List from "../Components/List";
-import { Link } from "react-router-dom";
-import style from "../Layouts/CreatePage.module.scss";
+import Editor from "./Editor";
+import List from "./List";
+import style from "./CreatePage.module.scss";
+import Menu from "../Layouts/Menu";
 
 const CreatePage = () => {
   return (
     <div>
       <h1 className={style.AppTitle}>Create</h1>
-      <div className={style.navbar}>
-        <ul className={style.a}>
-          <Link to="/">Home</Link>
-          <Link to="/create">Create</Link>
-          <Link to="/edit">Edit</Link>
-        </ul>
-      </div>
+      <Menu />
       <Editor />
       <List />
     </div>

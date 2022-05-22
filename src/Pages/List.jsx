@@ -1,23 +1,21 @@
 import React, { useEffect } from "react";
-import ItemData from "./ItemData";
-import  styleList from "../Layouts/List.module.scss";
+import ItemData from "../Pages/ItemData";
+import  styleList from "./List.module.scss";
 import { observer } from "mobx-react-lite";
-import { listStore } from "../Common/ListStore";
-import { store } from "../Common/Store";
+import { listStore } from "../Stores/ListStore";
+import { store } from "../Stores/Store";
+import { deleteStore } from "../Stores/DeleteStore";
+import Search from "../Components/Search";
 
 const List = () => {
 
-  const update = listStore.confirmHandler
+  const updateOnAdd = listStore.confirmHandler
+  const updateOnDelete = deleteStore.deleteHandler
 
   //renders list when first started, updates list when confirmHanlder function fires
   useEffect(() => {
     listStore.fetchCars()
-  }, [update])
-
-   //set value for search by name input
-   const handleInput = (event) => {
-    store.searchCar = (event.target.value);
-  };
+  }, [updateOnAdd, updateOnDelete])
 
   //search by name input logic
   const filteredCars =
@@ -30,12 +28,7 @@ const List = () => {
 
   return (
     <div className={styleList.ListUi}>
-      <input
-        className={styleList.ListSearchInput}
-        type="text"
-        onChange={handleInput}
-        placeholder="Search by car name"
-      ></input>
+      <Search />
       <div className={styleList.ListControl}>
         <div className={styleList.ListFilters}>
           <h4 onClick={store.sortByName}>Name</h4>

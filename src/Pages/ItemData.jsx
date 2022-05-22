@@ -1,14 +1,16 @@
-import { store } from "../Common/Store";
-import stylesData from "../Layouts/ItemData.module.scss";
-import Pagination from "./Pagination";
-import { listStore } from "../Common/ListStore";
+
+import { store } from "../Stores/Store";
+import stylesData from "./ItemData.module.scss";
+import Pagination from "../Components/Pagination";
+import { listStore } from "../Stores/ListStore";
 import { observer } from "mobx-react-lite";
 import { useLocation } from 'react-router-dom'
+import { deleteStore } from "../Stores/DeleteStore";
 
 const ItemData = (props) => {
   //setting number of items per list
 
-  const indexOfLastItem = store.currentPage * store.itemsPerPage;
+  const indexOfLastItem = store.currentPage * store.itemsPerPage ;
   const indexOfFirstPost = indexOfLastItem - store.itemsPerPage;
   const currentPost = props.carDetail.slice(indexOfFirstPost, indexOfLastItem);
 
@@ -16,6 +18,12 @@ const ItemData = (props) => {
   const paginate = (pageNumber) => {
     store.setCurrentPage(pageNumber);
   };
+
+  const listedCars = props.carDetail.length
+  
+
+  console.log(listedCars)
+
 
   //sets location 
   const location = useLocation();
@@ -48,7 +56,7 @@ const ItemData = (props) => {
                     `Are you sure you want to delete ${car.name} ${car.type} from the list?`
                   )
                 ) {
-                  listStore.deleteHandler(listStore.setSelectedId(car.id));
+                  deleteStore.deleteHandler(deleteStore.setSelectedId(car.id));
                 }
               }}
             >
@@ -60,7 +68,7 @@ const ItemData = (props) => {
       <div>
         <Pagination
           itemsPerPage={store.itemsPerPage}
-          totalItems={listStore.loadedCars.length}
+          totalItems={listedCars}
           paginate={paginate}
         />
       </div>

@@ -18,7 +18,6 @@ class ListStore {
       loadedCars: observable,
       setLoadedCars: action,
       fetchCars: action,
-      deleteHandler: action,
       confirmHandler: action,
     });
   }
@@ -26,11 +25,7 @@ class ListStore {
   setLoadedCars = (loadedCar) => {
     this.loadedCars = loadedCar;
   };
-  //set selected ID for deleteHandler function
-  setSelectedId = (selectedId) => {
-    this.selectedId = selectedId;
-    console.log(this.selectedId);
-  };
+
   //set data for confirmHandler POST function
   setData = (data) => {
     this.data = data;
@@ -54,25 +49,12 @@ class ListStore {
     });
   };
 
-  //fetch DELETE method function
-  deleteHandler = async () => {
-    await fetch(
-      `https://mono-6be92-default-rtdb.europe-west1.firebasedatabase.app/${this.selectedId}.json`,
-      {
-        method: "DELETE",
-      }
-    );
-    runInAction(() => {
-      this.fetchCars();
-    });
-  };
-
   //fetch cars function
   async fetchCars() {
     const response = await fetch(
       "https://mono-6be92-default-rtdb.europe-west1.firebasedatabase.app/.json"
     );
-    const data = response.json().then((data) => {
+     response.json().then((data) => {
       const loadedCar = [];
       for (const key in data) {
         loadedCar.push({
