@@ -34,7 +34,6 @@ class ListStore {
 
   //fetch POST method function
   confirmHandler = async (event) => {
-    alert(`Item ${this.data.name} ${this.data.type} added to the list!`);
     event.preventDefault();
     await fetch(
       "https://mono-6be92-default-rtdb.europe-west1.firebasedatabase.app/.json",
