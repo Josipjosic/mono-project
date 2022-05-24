@@ -17,10 +17,7 @@ import {
         deleteHandler: action,
       });
     }
-    //set received data from fetch cars function
-    setLoadedCars = (loadedCar) => {
-      this.loadedCars = loadedCar;
-    };
+
     //set selected ID for deleteHandler function
     setSelectedId = (selectedId) => {
       this.selectedId = selectedId;

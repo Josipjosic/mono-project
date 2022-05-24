@@ -1,10 +1,7 @@
-import { action, makeAutoObservable, observable } from "mobx";
+import { makeAutoObservable, observable } from "mobx";
 import { listStore } from "./ListStore";
 
 class Store {
-  data;
-  setName = "";
-  setType = "";
   searchCar = [];
   currentPage = 1;
   itemsPerPage = 4;
@@ -13,25 +10,14 @@ class Store {
 
   constructor() {
     makeAutoObservable(this, {
-      data: observable,
       searchCar: observable,
       currentPage: observable,
-      modal: observable,
-      toggleModal: action,
     });
   }
 
   // sets current page number
   setCurrentPage = (currentPage) => {
     this.currentPage = currentPage;
-  };
-  // sets name of input name
-  setSetName = (setName) => {
-    this.setName = setName;
-  };
-  // sets type of input type
-  setSetType = (setType) => {
-    this.setType = setType;
   };
 
   //sorting list by name

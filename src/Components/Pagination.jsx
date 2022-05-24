@@ -5,10 +5,6 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
 
   const pageNumbers = [];
 
-  console.log(totalItems)
-  console.log(itemsPerPage)
-  console.log(pageNumbers)
-
   
   //pagnation logic for list 
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {

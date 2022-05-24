@@ -1,30 +1,30 @@
 import React, { useEffect } from "react";
 import ItemData from "../Pages/ItemData";
-import  styleList from "./List.module.scss";
+import styleList from "./List.module.scss";
 import { observer } from "mobx-react-lite";
 import { listStore } from "../Stores/ListStore";
 import { store } from "../Stores/Store";
+import { createStore } from "../Stores/CreateStore";
 import { deleteStore } from "../Stores/DeleteStore";
 import Search from "../Components/Search";
 
 const List = () => {
-
-  const updateOnAdd = listStore.confirmHandler
-  const updateOnDelete = deleteStore.deleteHandler
+  const updateOnAdd = createStore.confirmHandler;
+  const updateOnDelete = deleteStore.deleteHandler;
 
   //renders list when first started, updates list when confirmHanlder function fires
   useEffect(() => {
-    listStore.fetchCars()
-  }, [updateOnAdd, updateOnDelete])
+    listStore.fetchCars();
+  }, [updateOnAdd, updateOnDelete]);
 
   //search by name input logic
   const filteredCars =
-  listStore.loadedCars &&
-  listStore.loadedCars.filter((car) => {
-    return car.name?.toLowerCase()
-      .includes(store.searchCar.toString().toLowerCase());
-  });
-
+    listStore.loadedCars &&
+    listStore.loadedCars.filter((car) => {
+      return car.name
+        ?.toLowerCase()
+        .includes(store.searchCar.toString().toLowerCase());
+    });
 
   return (
     <div className={styleList.ListUi}>
@@ -36,7 +36,7 @@ const List = () => {
         </div>
       </div>
       <section className={styleList.SectionList}>
-        {listStore.loadedCars  && <ItemData carDetail={filteredCars}/>}
+        {listStore.loadedCars && <ItemData carDetail={filteredCars} />}
       </section>
     </div>
   );

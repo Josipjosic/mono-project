@@ -1,5 +1,5 @@
 import React from "react";
-import modalStyle from "./Modal.module.scss";
+import modalStyle from "./DeleteModal.module.scss";
 import { showModal } from "../Stores/ModalDelStore";
 import { deleteStore } from "../Stores/DeleteStore";
 

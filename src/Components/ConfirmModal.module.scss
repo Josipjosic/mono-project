@@ -1,0 +1,64 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.295);
+}
+
+.modal {
+  position: fixed;
+  top: 30vh;
+  left: 34%;
+  width: 30%;
+  height: 25%;
+  z-index: 100;
+  background-color: #4f005f;
+  border-radius: 5px;
+}
+
+.header {
+  background: #4f005f;
+  padding: 1rem;
+}
+
+.header {
+  h3 {
+    margin-left: 23%;
+    color: white;
+    font-size: 25px;
+  }
+  h4 {
+    margin-left: 17%;
+    color: white;
+  }
+}
+
+.content {
+  padding: 1rem;
+}
+
+.actions {
+  display: inline;
+  padding-left: 30%;
+
+  .button {
+    margin-left: 13%;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.205);
+    color: black;
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    margin-top: 11px;
+  }
+  .button:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: #fcfcfc2a;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+}

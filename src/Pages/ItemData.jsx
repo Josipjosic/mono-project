@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { deleteStore } from "../Stores/DeleteStore";
 import DeleteModal from "../Components/DeleteModal";
 import { showModal } from "../Stores/ModalDelStore";
+import { editorStore } from "../Stores/EditorStore";
 
 const ItemData = (props) => {
   //setting number of items per list
@@ -31,7 +32,14 @@ const ItemData = (props) => {
     <div className={stylesData.EditorCom}>
       {currentPost.map((car) => (
         <div key={car.id} className={stylesData.detailsGrid} tabIndex="1">
-          <ul className={stylesData.detailsGridItems}>
+          <ul
+            className={stylesData.detailsGridItems}
+            onClick={() => {
+              editorStore.setSelectedName(car.name);
+              editorStore.setSelectedType(car.type);
+              console.log(editorStore.Name)
+            }}
+          >
             <li className={stylesData.gridItem} key={car.name}>
               {car.name}
             </li>

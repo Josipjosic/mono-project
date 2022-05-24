@@ -1,5 +1,5 @@
 import React from "react";
-import modalStyle from "./Modal.module.scss";
+import modalStyle from "./ConfirmModal.module.scss";
 import { showConfModal } from "../Stores/ModalConfStore";
 
 const ConfirmModal = (props) => {
