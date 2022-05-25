@@ -37,7 +37,9 @@ const ItemData = (props) => {
             onClick={() => {
               editorStore.setSelectedName(car.name);
               editorStore.setSelectedType(car.type);
+              editorStore.setSelectedId(car.id)
               console.log(editorStore.Name)
+              console.log(editorStore.SelectedId)
             }}
           >
             <li className={stylesData.gridItem} key={car.name}>

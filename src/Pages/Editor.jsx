@@ -13,15 +13,6 @@ const Editor = () => {
   //sending data to store data value
   editorStore.data = data;
 
-  console.log(data)
-
-
-  // +++++ ON IT logic for changind selected data 
-  const inputHandler = (event) => {
-    editorStore.data.name = event.target.value
-    editorStore.data.type = event.target.value
-    console.log(editorStore.data)
-  }
 
   return (
     <div className={styleEditor.EditorUi}>
@@ -42,7 +33,7 @@ const Editor = () => {
           onChange={(event) =>  editorStore.setSelectedType(event.target.value)}
         ></input>
         <div className={styleEditor.EditorCom}>
-          <button onClick={inputHandler}>Confirm</button>
+          <button onClick={editorStore.updateHandler}>Confirm</button>
         </div>
       </form>
     </div>
