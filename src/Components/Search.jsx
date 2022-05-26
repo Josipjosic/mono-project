@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import styleList from '../Pages/List.module.scss'
 import { store } from '../Stores/Store';
 
