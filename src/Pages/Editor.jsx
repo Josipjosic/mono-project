@@ -1,6 +1,8 @@
 import styleEditor from "./Editor.module.scss";
 import { observer } from "mobx-react";
 import { editorStore } from "../Stores/EditorStore";
+import ConfirmModal from "../Components/ConfirmModal";
+import { showConfModal } from "../Stores/ModalConfStore";
 
 const Editor = () => {
 
@@ -12,6 +14,7 @@ const Editor = () => {
 
   //sending data to store data value
   editorStore.data = data;
+
 
 
   return (
@@ -33,9 +36,21 @@ const Editor = () => {
           onChange={(event) =>  editorStore.setSelectedType(event.target.value)}
         ></input>
         <div className={styleEditor.EditorCom}>
-          <button onClick={editorStore.updateHandler}>Confirm</button>
+          <button 
+          type="button"
+            onClick={(event) => {
+              showConfModal.setState(true);
+              editorStore.updateHandler.call(this, event);
+            }}
+          >
+            Confirm</button>
         </div>
       </form>
+      <div>
+        {showConfModal.state &&
+          <ConfirmModal open={showConfModal.state}></ConfirmModal>
+        }
+      </div>
     </div>
   );
 };
