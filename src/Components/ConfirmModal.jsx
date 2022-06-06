@@ -10,8 +10,8 @@ const ConfirmModal = (props) => {
     <div className={modalStyle.backdrop}>
       <div className={modalStyle.modal}>
         <div className={modalStyle.header}>
-          {ItemData.isLocatedEdit ?? <h3>You edited item from the list!</h3>}
           {!ItemData.isLocatedEdit ?? <h3>You added item to the list!</h3>}
+          {ItemData.isLocatedEdit ?? <h3>You edited item from the list!</h3>}
           <h4 className={modalStyle.content}>
             {props.name} {props.type}
           </h4>

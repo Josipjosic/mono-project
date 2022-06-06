@@ -10,7 +10,6 @@ configure({ enforceActions: true });
 
 class ListStore {
   loadedCars = [];
-  selectedId;
 
   constructor() {
     makeAutoObservable(this, {
@@ -38,6 +37,7 @@ class ListStore {
           name: data[key].name,
           type: data[key].type,
           key: data[key].id,
+          modelType: data[key].modelType,
         });
       }
       runInAction(() => {

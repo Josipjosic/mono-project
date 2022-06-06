@@ -44,6 +44,10 @@
     border: 1px solid rgba(255, 255, 255, 0);
     border-radius: 5px;
     margin-top: 11px;
+    a {
+      text-decoration: none;
+      color: white;
+    }
   }
   button:hover {
     cursor: pointer;

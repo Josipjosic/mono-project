@@ -27,13 +27,13 @@ const DeleteModal = (props) => {
               deleteStore.deleteHandler(
               deleteStore.setSelectedId(deleteStore.selectedId)
               );
-              handleCloseModal()
+              showModal.setState(false)
             }}
           >
             Delete
           </button>
           <button className={modalStyle.button} onClick={handleCloseModal}>
-            Cancel
+            Close
           </button>
         </div>
       </div>

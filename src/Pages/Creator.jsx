@@ -7,12 +7,18 @@ import { showConfModal } from "../Stores/ModalConfStore";
 const Creator = () => {
   const name = createStore.setName;
   const type = createStore.setType;
+  const modelType = createStore.modelType;
+ 
 
   // stored name input and type input values to data const
-  const data = { name, type };
+  const data = { name, type, modelType };
 
   //sending data to store data value
   createStore.data = data;
+
+  const handleChange = (event) => {
+    createStore.setModelType(event.target.value)
+  }
 
   return (
     <div className={styleEditor.EditorUi}>
@@ -32,9 +38,27 @@ const Creator = () => {
           placeholder="Enter Type"
           onChange={(event) => createStore.setSetType(event.target.value)}
         ></input>
+        <label htmlFor="model-type" className={styleEditor.DropdownLabel}>
+          Model Type
+        </label>
+        <select
+          defaultValue={createStore.ModelType}
+          className={styleEditor.SelectDropdown}
+          onChange={handleChange}
+        >
+          <option defaultValue="-">-</option>
+          <option value>Hatchback</option>
+          <option value="Sedan">
+            Sedan
+          </option>
+          <option value="SUV">SUV</option>
+          <option value="Coupe">Copue</option>
+          <option value="Convertible">Convertible</option>
+          <option value="Pickup Truck">Pickup Truck</option>
+        </select>
         <div className={styleEditor.EditorCom}>
           <button
-          type="button"
+            type="button"
             onClick={(event) => {
               showConfModal.setState(true);
               createStore.confirmHandler.call(this, event);
@@ -45,9 +69,9 @@ const Creator = () => {
         </div>
       </form>
       <div>
-        {showConfModal.state &&
+        {showConfModal.state && (
           <ConfirmModal open={showConfModal.state}></ConfirmModal>
-        }
+        )}
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ class CreateStore {
   data;
   setName = "";
   setType = "";
+  modelType = "";
 
   constructor() {
     makeAutoObservable(this, {
@@ -33,6 +34,10 @@ class CreateStore {
   // sets type of input type
   setSetType = (setType) => {
     this.setType = setType;
+  };
+  // sets type of input type
+  setModelType = (modelType) => {
+    this.modelType = modelType;
   };
 
   //fetch POST method function

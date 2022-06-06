@@ -10,6 +10,8 @@ class EditorStore {
   SelectedName = "";
   SelectedType = "";
   SelectedId = "";
+  SelectedModelType = "";
+  StoredParams = "";
 
   constructor() {
     makeAutoObservable(this, {
@@ -42,6 +44,14 @@ class EditorStore {
   setSelectedId = (SelectedId) => {
     this.SelectedId = SelectedId;
   };
+
+  setStoredParams = (StoredParams) => {
+    this.StoredParams = StoredParams;
+  };
+
+  setSelectedModelType = (SelectedModelType) => {
+    this.SelectedModelType = SelectedModelType;
+  }
 
   //fetch PUT method function
   updateHandler = async (event) => {

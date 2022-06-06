@@ -8,11 +8,13 @@ const Search = () => {
    const handleInput = (event) => {
     store.searchCar = (event.target.value);
   };
+
   return (
     <div>
         <input
         className={styleList.ListSearchInput}
         type="text"
+        value={store.searchCar}
         onChange={handleInput}
         placeholder="Search by car name"
       ></input>

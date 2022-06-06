@@ -9,7 +9,6 @@ const Menu = () => {
       <ul className={style.a}>
         <Link to="/">Home</Link>
         <Link to="/create">Create</Link>
-        <Link to="/edit">Edit</Link>
       </ul>
     </div>
   )

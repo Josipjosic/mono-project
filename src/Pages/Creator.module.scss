@@ -13,9 +13,27 @@
   .EditorContent {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    margin-left: 32.7%;
+    margin-left: 24%;
     width: 34%;
+    
+    .DropdownLabel {
+      position: absolute;
+      margin-left: 33%;
+    }
 
+    .SelectDropdown {
+      position: absolute;
+      margin-left: 38%;
+      width: 200px;
+      height: 30px;
+      color: white;
+      margin-top: 10px;
+      background-color: rgba(255, 255, 255, 0.205);
+      border: 1px solid rgba(255, 255, 255, 0);
+      border-radius: 5px;
+      outline: none;
+
+    }
 
     label {
       font-size: 15px;
@@ -36,14 +54,13 @@
       display: grid;
       gap: 1rem;
       grid-column-start: none;
-
     }
     .EditorCom {
       margin-left: -170px;
       margin-top: 46px;
       button {
         position: absolute;
-        margin-left: 23%;
+        margin-left: 32%;
         padding: 10px;
         font-size: 16px;
         background-color: rgba(255, 255, 255, 0.205);

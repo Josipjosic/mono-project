@@ -13,3 +13,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.appTitle {
+  color: white;
+  margin-left: 44%;
+  font-size: 35px;
+}
